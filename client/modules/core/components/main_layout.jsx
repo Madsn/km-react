@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbarlinks from './navbarlinks.jsx';
 
 const Layout = ({content = () => null }) => (
   <div>
@@ -15,8 +16,7 @@ const Layout = ({content = () => null }) => (
             <i className="navbar-brand glyphicon glyphicon-asterisk"></i>
           </div>
           <div className="navbar-collapse collapse navbar-responsive-collapse">
-            <ul className="nav navbar-nav">
-            </ul>
+            <Navbarlinks/>
             <ul className="nav navbar-nav navbar-right">
             </ul>
           </div>
