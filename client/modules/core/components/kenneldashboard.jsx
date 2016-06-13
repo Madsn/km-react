@@ -1,55 +1,18 @@
 import React from 'react';
+import DueToCheckIn from './due_to_check_in';
+import Occupants from './occupants';
 
 class KennelDashboard extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            bookings: [
-                { _id: 3, type: "Boarding", customer: "Thisen", details: "1 cat for 2 days", status: "Checking in today" },
-                { _id: 4, type: "Boarding", customer: "Madsn", details: "1 dog for 3 days", status: "Checking in today" }
-            ]
-        }
     }
 
     render() {
         return (
             <div>
                 <h1>KennelDashboard</h1>
-                <div className="row">
-                    <div className="card col-md-12">
-                        <div className="page-header">
-                            <h3>Due to check in</h3>
-                        </div>
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Booking type </th>
-                                    <th>Customer</th>
-                                    <th>Details</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {this.state.bookings.map(function (result) {
-                                    return <tr>
-                                        <td>
-                                            <a href="">
-                                                View booking
-                                            </a>
-                                        </td>
-                                        <td><span className="badge alert-success">{ result.type }</span></td>
-                                        <td>{ result.customer }</td>
-                                        <td>{ result.details }</td>
-                                        <td><span className="text-info">{ result.status }</span></td>
-                                        <td><span title="Edit booking" className="clickable glyphicon glyphicon-edit"></span></td>
-                                    </tr>;
-                                }) }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <DueToCheckIn />
+                <Occupants />
             </div>
         );
     }
