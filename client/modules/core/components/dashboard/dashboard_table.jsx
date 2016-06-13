@@ -1,14 +1,9 @@
 import React from 'react';
+import DashboardActions from './dashboard_actions';
 
-class DueToCheckIn extends React.Component {
+class DashboardTable extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            bookings: [
-                { _id: 3, type: "Boarding", customer: "Thisen", details: "1 cat for 2 days", status: "Checking in today" },
-                { _id: 4, type: "Boarding", customer: "Madsn", details: "1 dog for 3 days", status: "Checking in today" }
-            ]
-        }
     }
 
     render() {
@@ -17,7 +12,7 @@ class DueToCheckIn extends React.Component {
                 <div className="row">
                     <div className="card col-md-12">
                         <div className="page-header">
-                            <h3>Due to check in</h3>
+                            <h3>{this.props.header}</h3>
                         </div>
                         <table className="table">
                             <thead>
@@ -31,18 +26,20 @@ class DueToCheckIn extends React.Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.state.bookings.map(function (result) {
-                                    return <tr key={result._id}>
+                                {this.props.rows.map(function (item) {
+                                    return <tr key={item._id}>
                                         <td>
                                             <a href="">
                                                 View booking
                                             </a>
                                         </td>
-                                        <td><span className="badge alert-success">{ result.type }</span></td>
-                                        <td>{ result.customer }</td>
-                                        <td>{ result.details }</td>
-                                        <td><span className="text-info">{ result.status }</span></td>
-                                        <td><span title="Edit booking" className="clickable glyphicon glyphicon-edit"></span></td>
+                                        <td><span className="badge alert-success">{ item.type }</span></td>
+                                        <td>{ item.customer }</td>
+                                        <td>{ item.details }</td>
+                                        <td><span className="text-info">{ item.status }</span></td>
+                                        <td>
+                                            <DashboardActions item={item} />
+                                        </td>
                                     </tr>;
                                 }) }
                             </tbody>
@@ -54,4 +51,4 @@ class DueToCheckIn extends React.Component {
     }
 }
 
-export default DueToCheckIn;
+export default DashboardTable;

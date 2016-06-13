@@ -1,9 +1,9 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import MainLayout from './components/main_layout.jsx';
-import Home from './components/home.jsx';
-import KennelDashboard from './components/kenneldashboard.jsx';
+import MainLayout from './components/main_layout';
+import Home from './components/home';
+import KennelDashboard from './components/dashboard/kenneldashboard';
 
 export default function (injectDeps, {FlowRouter}) {
   const MainLayoutCtx = injectDeps(MainLayout);
