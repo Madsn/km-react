@@ -25,7 +25,7 @@ const Layout = ({content = () => null }) => (
     </div>
     <div id="content">
       <div className="container">
-        {content()}
+        {content() }
       </div>
     </div>
     <div className="container">
@@ -41,7 +41,7 @@ const Layout = ({content = () => null }) => (
       </div>
     </div>
     <script>
-    {`
+      {`
       $(document).on('click.nav','.navbar-collapse.in',function(e) {
         if( $(e.target).is('a') || $(e.target).is('button')) {
           if ($('.navbar-toggle').is(':visible')) {
