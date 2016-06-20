@@ -26,22 +26,26 @@ class DashboardTable extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {this.props.rows.map(function (item) {
-                  return <tr key={item._id}>
-                    <td>
-                      <a href="">
-                        View booking
-                      </a>
-                    </td>
-                    <td><span className="badge alert-success">{ item.type }</span></td>
-                    <td>{ item.customer }</td>
-                    <td>{ item.details }</td>
-                    <td><span className="text-info">{ item.status }</span></td>
-                    <td>
-                      <DashboardActions item={item} />
-                    </td>
-                  </tr>;
-                }) }
+                {(() => {
+                  if (this.props.row != null) {
+                    this.props.rows.map(function (item) {
+                      return <tr key={item._id}>
+                        <td>
+                          <a href="">
+                            View booking
+                          </a>
+                        </td>
+                        <td><span className="badge alert-success">{ item.bookingType }</span></td>
+                        <td>{ item.customer }</td>
+                        <td>{ item.details }</td>
+                        <td><span className="text-info">{ item.status }</span></td>
+                        <td>
+                          <DashboardActions item={item} />
+                        </td>
+                      </tr>;
+                    })
+                  }
+                })()}
               </tbody>
             </table>
           </div>
